@@ -1,4 +1,4 @@
-**ODP — Operational Data Platform**
+##ODP — Operational Data Platform
 
 What it is: The landing + operational layer that ingests source-of-record (SoR) data with minimal transformation.
 
@@ -13,7 +13,7 @@ In the lab: finance_odp.transactions (synthetic SoR transactions).
 DQ focus: Schema/Nulls/Basic reasonableness per load window; run IDs tracked in finance_controls.dq_results.
 
 
-**FDP — Foundational Data Product**
+##FDP — Foundational Data Product
 
 What it is: Reusable, trusted reference/lookup data that other products depend on.
 
