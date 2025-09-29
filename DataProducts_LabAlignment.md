@@ -1,4 +1,4 @@
-# Data Products in Banking — Revised Whitepaper (Lab-Aligned)
+# Data Products in Banking — Lab-Aligned
 
 > **TL;DR (1–2 minute read)**
 >
