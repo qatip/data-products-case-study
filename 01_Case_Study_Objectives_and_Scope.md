@@ -1,19 +1,18 @@
-# Case Study — Objectives & Scope
-
+# Case Study Objectives & Scope
 ## Objectives
-1. Prove a **metadata-driven** approach to deploy/manage data products on BigQuery.
-2. Demonstrate the **trust backbone**: reconciliation, data quality, lineage.
-3. Show how **labels/metadata** feed a queryable catalog view with DQ badges.
-4. Provide a **repeatable lab** that mimics enterprise patterns.
+1. Build a **banking data product** with clear separation of **ODP/FDP/CDP**.
+2. Enforce **basic DQ** (completeness, reasonableness, freshness/coverage).
+3. Provide a **catalog view** enriched with **labels** and **latest DQ** badge.
+4. Support **daily simulation** by **business date** to mirror production cadence.
+5. Capture **run-based evidence** in `dq_results` for traceability.
 
-## In scope
-- BigQuery datasets: `finance_odp`, `finance_fdp`, `finance_cdp`, `finance_controls`.
-- Sample data: ODP transactions; FDP FX rates.
-- Curated views (CDP): harmonised transactions + daily/monthly/by-currency aggregates.
-- DQ + reconciliation stored procedure, `dq_results` table, `v_dq_latest` badge view.
-- Terraform for infra/objects; PowerShell for orchestration.
+## Scope
+- **In-scope**
+  - BigQuery datasets: `finance_odp`, `finance_fdp`, `finance_cdp`, `finance_controls`, `finance_catalog`.
+  - DQ: `required_fields_period`, `amount_non_negative`, `fx_freshness`, `fx_coverage_day`, `cdp_freshness_1d`, `cdp_rowcount_matches_odp`.
+  - Labels via `INFORMATION_SCHEMA.TABLE_OPTIONS` → view `v_object_labels`.
+  - Latest DQ badge via `v_dq_latest`; catalog join via `v_catalog`.
 
-## Out of scope (for now)
-- Collibra/Edge native integrations (simulated via CSV → labels).
-- Full DQ rule catalogue (we implement a focused, extensible set).
-- Production dashboards (we surface SQL/views you can wire to BI later).
+- **Out-of-scope**
+  - Real-time streaming, CDC, masking/tokenisation, cost governance.
+  - External tooling (e.g., Collibra) — simulated via CSV-driven labels.
